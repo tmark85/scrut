@@ -1,1 +1,1 @@
-# scrut
+# scrute
