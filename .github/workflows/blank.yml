@@ -8,6 +8,8 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.calculate_version.outputs.version }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -27,4 +29,4 @@ jobs:
 
     - name: Use version from job1
       run: |
-        echo "The version from job1 is ${{ needs.job1.outputs.calculate_version.version }}"
+        echo "The version from job1 is ${{ needs.job1.outputs.output1 }}"
