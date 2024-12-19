@@ -29,4 +29,4 @@ jobs:
 
     - name: Use version from job1
       run: |
-        echo "The version from job1 is ${{ needs.job1.outputs.calculate_version.version }}"
+        echo "The version from job1 is ${{ needs.job1.outputs.version }}"
