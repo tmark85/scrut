@@ -18,6 +18,7 @@ jobs:
         version="1.2.3"
         echo "VERSION=$version" >> $GITHUB_ENV
         echo "::set-output name=version::$version"
+        echo "Set version to $version"
 
   job2:
     runs-on: ubuntu-latest
