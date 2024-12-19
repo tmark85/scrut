@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - master
-
+env:
+  isProd: false
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -30,3 +31,4 @@ jobs:
     - name: Use version from job1
       run: |
         echo "The version from job1 is ${{ needs.job1.outputs.output1 }}"
+        echo  ${{ env.isProd == 'false' && github.workspace + '/bcm-artifact-' + needs.job1.outputs.output1 + '.zip' || 'bcm-artifact-' + needs.job1.outputs.output1 + '.zip' }}
