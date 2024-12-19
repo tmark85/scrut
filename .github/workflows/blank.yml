@@ -3,7 +3,7 @@ name: Simple Mock Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   job1:
