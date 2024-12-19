@@ -1,0 +1,30 @@
+name: Simple Mock Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Calculate version
+      id: calculate_version
+      run: |
+        version="1.2.3"
+        echo "VERSION=$version" >> $GITHUB_ENV
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Use version from job1
+      run: |
+        echo "The version from job1 is ${{ needs.job1.outputs.calculate_version.version }}"
