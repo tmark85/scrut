@@ -31,4 +31,4 @@ jobs:
     - name: Use version from job1
       run: |
         echo "The version from job1 is ${{ needs.job1.outputs.output1 }}"
-        echo  "Package path: ${{ env.isProd == 'false' && github.workspace + '/bcm-artifact-' + needs.job1.outputs.output1 + '.zip' || 'bcm-artifact-' + needs.job1.outputs.output1 + '.zip' }}"
+        echo "Package path: ${{ env.isProd == 'false' && github.workspace + '/bcm-artifact-' + inputs.version + '.zip' || 'bcm-artifact-' + inputs.version + '.zip' }}"
