@@ -17,8 +17,7 @@ jobs:
       run: |
         version="1.2.3"
         echo "VERSION=$version" >> $GITHUB_ENV
-        echo "::set-output name=version::$version"
-        echo "Set version to $version"
+        echo "version=$version" >> $GITHUB_OUTPUT
 
   job2:
     runs-on: ubuntu-latest
@@ -29,4 +28,4 @@ jobs:
 
     - name: Use version from job1
       run: |
-        echo "The version from job1 is ${{ needs.job1.outputs.version }}"
+        echo "The version from job1 is ${{ needs.job1.outputs.calculate_version.version }}"
