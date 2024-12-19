@@ -16,7 +16,6 @@ jobs:
       id: calculate_version
       run: |
         version="1.2.3"
-        echo "VERSION=$version" >> $GITHUB_ENV
         echo "version=$version" >> $GITHUB_OUTPUT
 
   job2:
